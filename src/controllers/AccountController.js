@@ -1,14 +1,14 @@
-const { AccountService } = require('../services/AccountService')
+const AccountService = require('../services/AccountService.js')
 
 const accountService = new AccountService()
 
-export class AccountController {
+class AccountController {
 
     async createAccount(request, response) {
 
         const { cpf, name } = request.body
 
-        accountService.createAccount(cpf, name)
+        await accountService.createAccount(cpf, name)
 
         try {
 
@@ -51,3 +51,5 @@ export class AccountController {
     }
 
 }
+
+module.exports = AccountController
