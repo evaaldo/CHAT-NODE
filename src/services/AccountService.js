@@ -7,7 +7,14 @@ class AccountService {
 
         const id = crypto.randomUUID()
 
-        await sql`INSERT INTO accounts (id, name, cpf) VALUES (${id}, ${name}, ${cpf})`
+        const accountExists = await sql`SELECT * FROM accounts WHERE cpf=${cpf}`
+
+        if(accountExists.length === 0) {
+            await sql`INSERT INTO accounts (id, name, cpf) VALUES (${id}, ${name}, ${cpf})`
+            return 0
+        } else {
+            return null
+        }
 
     }
 
