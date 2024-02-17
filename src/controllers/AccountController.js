@@ -39,7 +39,7 @@ class AccountController {
                 return response.status(400).json(accountDatabase)
             }
         } catch(error) {
-            return error
+            console.log(error)
         }
 
     }

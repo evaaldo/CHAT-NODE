@@ -20,7 +20,7 @@ class AccountService {
 
     async searchBankStatementOfAccount(id) {
 
-        const account = sql`SELECT * FROM account WHERE id=${id}`
+        const account = await sql`SELECT * FROM accounts WHERE id=${id}`
 
         if(account.length === 0) {
             return null
