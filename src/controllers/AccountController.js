@@ -38,6 +38,8 @@ class AccountController {
             } else {
                 return response.status(400).json(accountDatabase)
             }
+        } catch(error) {
+            return error
         }
 
     }

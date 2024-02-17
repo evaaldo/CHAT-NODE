@@ -18,7 +18,15 @@ class AccountService {
 
     }
 
-    async searchBankStatementOfAccount() {
+    async searchBankStatementOfAccount(id) {
+
+        const account = sql`SELECT * FROM account WHERE id=${id}`
+
+        if(account.length === 0) {
+            return null
+        } else {
+            return account
+        }
 
     }
 
