@@ -2,6 +2,8 @@ export class AccountService {
 
     async createAccount(cpf, name) {
 
+        
+
     }
 
     async searchBankStatementOfAccount() {

@@ -6,6 +6,20 @@ export class AccountController {
 
     async createAccount(request, response) {
 
+        const { cpf, name } = request.body
+
+        accountService.createAccount(cpf, name)
+
+        try {
+
+            return response.status(201).json({ message: "User created!" })
+
+        } catch(error) {
+
+            return error
+
+        }
+
     }
 
     async searchBankStatementOfAccount(request, response) {
