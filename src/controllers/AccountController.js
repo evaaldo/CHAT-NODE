@@ -28,6 +28,18 @@ class AccountController {
 
     async searchBankStatementOfAccount(request, response) {
 
+        const id = request.params.id
+
+        const accountDatabase = await accountService.searchBankStatementOfAccount(id)
+
+        try {
+            if(!accountDatabase) {
+                return response.status(400).json({ error: "User doesnt exists!" })
+            } else {
+                return response.status(400).json(accountDatabase)
+            }
+        }
+
     }
 
     async depositCash(request, response) {

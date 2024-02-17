@@ -4,7 +4,7 @@ const AccountController = require('./controllers/AccountCOntroller.js')
 const router = express.Router()
 const accountController = new AccountController()
 
-router.get('/account')
+router.get('/account/:id', accountController.searchBankStatementOfAccount)
 router.post('/account', accountController.createAccount)
 router.put('/account/:id')
 router.patch('/account/:id')
