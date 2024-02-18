@@ -1,6 +1,6 @@
 const express = require('express')
 const AccountController = require('./controllers/AccountCOntroller.js')
-const verifyIfExistsAccountCPF = require('./middlewares/accountcpfExists.js')
+const verifyIfExistsAccountCPF = require('./middlewares/accountExistsByCPF.js')
 const verifyIfExistsAccount = require('./middlewares/accountExists.js')
 
 const router = express.Router()
