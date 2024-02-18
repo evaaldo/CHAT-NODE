@@ -8,5 +8,6 @@ const accountController = new AccountController()
 
 router.get('/statement/:id', verifyIfExistsAccount, accountController.searchBankStatementOfAccount)
 router.post('/account', verifyIfExistsAccountCPF, accountController.createAccount)
+router.patch('/deposit', verifyIfExistsAccountCPF, accountController.depositCash)
 
 module.exports = router

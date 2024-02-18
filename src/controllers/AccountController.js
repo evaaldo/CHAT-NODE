@@ -42,9 +42,9 @@ class AccountController {
 
     async depositCash(request, response) {
 
-        const { cash } = request.body
+        const { cash, cpf } = request.body
 
-        await accountService.depositCash(cash)
+        await accountService.depositCash(cash, cpf)
 
         try {
 

@@ -19,9 +19,9 @@ class AccountService {
 
     }
 
-    async depositCash(cash) {
+    async depositCash(cash, cpf) {
 
-        
+        await sql`UPDATE accounts SET cash = ${cash} WHERE cpf = ${cpf}`
 
     }
 
