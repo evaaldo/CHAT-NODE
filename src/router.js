@@ -6,10 +6,7 @@ const verifyIfExistsAccount = require('./middlewares/accountExists.js')
 const router = express.Router()
 const accountController = new AccountController()
 
-router.get('/account/:id', verifyIfExistsAccount, accountController.searchBankStatementOfAccount)
+router.get('/statement/:id', verifyIfExistsAccount, accountController.searchBankStatementOfAccount)
 router.post('/account', verifyIfExistsAccountCPF, accountController.createAccount)
-router.put('/account/:id')
-router.patch('/account/:id')
-router.delete('/account/:id')
 
 module.exports = router

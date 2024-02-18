@@ -42,6 +42,20 @@ class AccountController {
 
     async depositCash(request, response) {
 
+        const { cash } = request.body
+
+        await accountService.depositCash(cash)
+
+        try {
+
+            return response.status(201).json({ message: "Succesfull deposit!" })
+
+        } catch(error) {
+
+            return response.status(201).json({ message: "Wasn't possible to deposit!" })
+
+        }
+
     }
 
     async withdrawCash(request, response) {
