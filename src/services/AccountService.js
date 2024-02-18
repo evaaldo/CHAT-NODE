@@ -29,7 +29,13 @@ class AccountService {
 
     }
 
-    async withdrawCash() {
+    async withdrawCash(cash, cpf, datetime) {
+
+        const account = await sql`SELECT * FROM accounts WHERE cpf = ${cpf}`
+
+        const newBalance = account[0].balance - cash
+
+        await sql`UPDATE accounts SET balance = ${newBalance}, datetime = ${datetime} WHERE cpf = ${cpf}`
 
     }
 

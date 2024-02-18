@@ -7,7 +7,7 @@ async function verifyIfAccountAlreadyExists(request, response, next) {
     const accountExists = await sql`SELECT * FROM accounts WHERE cpf=${cpf}`
 
     if(accountExists.length != 0) {
-        return response.status(400).json({ error: "User already exists!" })
+        return response.status(400).json({ error: "Account already exists!" })
     }
 
     return next()
