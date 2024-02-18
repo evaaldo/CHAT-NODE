@@ -24,13 +24,13 @@ class AccountController {
 
     async searchBankStatementOfAccount(request, response) {
 
-        const id = request.params.id
+        const { cpf } = request.body
 
-        const accountDatabase = await accountService.searchBankStatementOfAccount(id)
+        const accountDatabase = await accountService.searchBankStatementOfAccount(cpf)
 
         try {
 
-            return response.status(400).json(accountDatabase)
+            return response.status(200).json(accountDatabase)
 
         } catch(error) {
 
@@ -52,7 +52,7 @@ class AccountController {
 
         } catch(error) {
 
-            return response.status(201).json({ message: "Wasn't possible to deposit!" })
+            return response.status(400).json({ message: "Wasn't possible to deposit!" })
 
         }
 

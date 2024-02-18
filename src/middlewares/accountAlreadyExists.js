@@ -1,6 +1,6 @@
 const sql = require("../database/connection.js")
 
-async function verifyIfExistsAccountCPF(request, response, next) {
+async function verifyIfAccountAlreadyExists(request, response, next) {
 
     const { cpf } = request.body
 
@@ -14,4 +14,4 @@ async function verifyIfExistsAccountCPF(request, response, next) {
 
 }
 
-module.exports = verifyIfExistsAccountCPF
+module.exports = verifyIfAccountAlreadyExists

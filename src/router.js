@@ -1,13 +1,13 @@
 const express = require('express')
 const AccountController = require('./controllers/AccountCOntroller.js')
-const verifyIfExistsAccountCPF = require('./middlewares/accountExistsByCPF.js')
-const verifyIfExistsAccount = require('./middlewares/accountExists.js')
+const verifyIfAccountAlreadyExists = require('./middlewares/accountAlreadyExists.js')
+const verifyIfAccountExists = require('./middlewares/accountExists.js')
 
 const router = express.Router()
 const accountController = new AccountController()
 
-router.get('/statement/:id', verifyIfExistsAccount, accountController.searchBankStatementOfAccount)
-router.post('/account', verifyIfExistsAccountCPF, accountController.createAccount)
-router.put('/deposit/:id', verifyIfExistsAccount, accountController.depositCash)
+router.get('/statement', verifyIfAccountExists, accountController.searchBankStatementOfAccount)
+router.post('/account', verifyIfAccountAlreadyExists, accountController.createAccount)
+router.put('/deposit', verifyIfAccountExists, accountController.depositCash)
 
 module.exports = router

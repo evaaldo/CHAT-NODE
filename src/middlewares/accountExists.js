@@ -1,17 +1,17 @@
 const sql = require("../database/connection.js")
 
-async function verifyIfExistsAccount(request, response, next) {
+async function verifyIfAccountExists(request, response, next) {
 
-    const id = request.params.id
+    const { cpf } = request.body
 
-    const account = await sql`SELECT * FROM accounts WHERE id=${id}`
+    const accountExists = await sql`SELECT * FROM accounts WHERE cpf=${cpf}`
 
-    if(account.length === 0) {
-        return response.status(400).json({ error: "Account doesnt exists!" })
-    } 
+    if(accountExists.length === 0) {
+        return response.status(400).json({ error: "User doesn't exists!" })
+    }
 
     return next()
 
 }
 
-module.exports = verifyIfExistsAccount
+module.exports = verifyIfAccountExists

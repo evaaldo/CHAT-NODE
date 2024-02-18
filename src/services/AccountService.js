@@ -11,9 +11,11 @@ class AccountService {
 
     }
 
-    async searchBankStatementOfAccount(id) {
+    async searchBankStatementOfAccount(cpf) {
 
-        const account = await sql`SELECT * FROM accounts WHERE id=${id}`
+        const account = await sql`SELECT * FROM accounts WHERE cpf=${cpf}`
+
+        console.log(account)
 
         return account
 
@@ -21,7 +23,11 @@ class AccountService {
 
     async depositCash(cash, cpf, datetime) {
 
-        await sql`UPDATE accounts SET balance = ${cash}, datetime = ${datetime} WHERE cpf = ${cpf}`
+        const account = await sql`SELECT * FROM accounts WHERE cpf = ${cpf}`
+
+        const newBalance = account[0].balance + cash
+
+        await sql`UPDATE accounts SET balance = ${newBalance}, datetime = ${datetime} WHERE cpf = ${cpf}`
 
     }
 
