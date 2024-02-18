@@ -7,7 +7,7 @@ async function verifyIfExistsAccount(request, response, next) {
     const account = await sql`SELECT * FROM accounts WHERE id=${id}`
 
     if(account.length === 0) {
-        return response.status(400).json({ error: "User doesnt exists!" })
+        return response.status(400).json({ error: "Account doesnt exists!" })
     } 
 
     return next()
