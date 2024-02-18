@@ -60,6 +60,20 @@ class AccountController {
 
     async withdrawCash(request, response) {
 
+        const { cash, cpf, datetime } = request.body
+
+        await accountService.withdrawCash(cash, cpf, datetime)
+
+        try {
+
+            return response.status(200).json({ message: "Succesfull withdraw!" })
+
+        } catch(error) {
+
+            return response.status(400).json({ error: "Wasn't possible to withdraw!" })
+
+        }
+
     }
 
     async searchBankStatementOfAccountByDate(request, response) {
