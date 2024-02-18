@@ -15,8 +15,6 @@ class AccountService {
 
         const account = await sql`SELECT * FROM accounts WHERE cpf=${cpf}`
 
-        console.log(account)
-
         return account
 
     }
