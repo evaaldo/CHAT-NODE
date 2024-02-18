@@ -29,13 +29,13 @@ class AccountController {
         const accountDatabase = await accountService.searchBankStatementOfAccount(id)
 
         try {
-            if(!accountDatabase) {
-                return response.status(400).json({ error: "User doesnt exists!" })
-            } else {
-                return response.status(400).json(accountDatabase)
-            }
+
+            return response.status(400).json(accountDatabase)
+
         } catch(error) {
-            console.log(error)
+
+            return error
+
         }
 
     }

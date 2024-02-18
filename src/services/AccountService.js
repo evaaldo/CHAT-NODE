@@ -15,11 +15,7 @@ class AccountService {
 
         const account = await sql`SELECT * FROM accounts WHERE id=${id}`
 
-        if(account.length === 0) {
-            return null
-        } else {
-            return account
-        }
+        return account
 
     }
 
