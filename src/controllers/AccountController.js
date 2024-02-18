@@ -8,15 +8,11 @@ class AccountController {
 
         const { cpf, name } = request.body
 
-        const accountDatabase = await accountService.createAccount(cpf, name)
+        await accountService.createAccount(cpf, name)
 
         try {
 
-            if(accountDatabase === 0) {
-                return response.status(201).json({ message: "User created!" })
-            } else {
-                return response.status(400).json({ error: "User already exists!" })
-            }
+            return response.status(201).json({ message: "Account created!" })
 
         } catch(error) {
 
