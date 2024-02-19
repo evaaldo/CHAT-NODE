@@ -47,9 +47,9 @@ class AccountService {
 
     }
 
-    async updateAccountData(name, novoCpf, cpf) {
+    async updateAccountData(name, newCpf, cpf) {
 
-        await sql`UPDATE accounts SET name = ${name}, cpf = ${novoCpf} WHERE cpf = ${cpf}`
+        await sql`UPDATE accounts SET name = ${name}, cpf = ${newCpf} WHERE cpf = ${cpf}`
 
     }
 

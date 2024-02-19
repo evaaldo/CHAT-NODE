@@ -96,9 +96,9 @@ class AccountController {
 
     async updateAccountData(request, response) {
 
-        const { name, novoCpf, cpf } = request.body
+        const { name, newCpf, cpf } = request.body
 
-        await accountService.updateAccountData(name, novoCpf, cpf)
+        await accountService.updateAccountData(name, newCpf, cpf)
 
         try {
 
