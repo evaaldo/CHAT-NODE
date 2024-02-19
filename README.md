@@ -6,7 +6,7 @@
     - [X] Deve ser possível realizar um saque
     - [X] Deve ser possível buscar o extrato bancário do cliente por data
     - [X] Deve ser posível atualizar os dados da conta do cliente
-    - [] Deve ser possível obter os dados de todas as conta de clientes
+    - [X] Deve ser possível obter os dados de todas as conta de clientes
     - [] Deve ser possível deletar uma conta
 
 ### Regras de negócio

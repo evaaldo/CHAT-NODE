@@ -130,6 +130,20 @@ class AccountController {
 
     async deleteAccount(request, response) {
 
+        const { cpf } = request.body
+
+        await accountService.deleteAccount(cpf)
+
+        try {
+
+            return response.status(200).json({ message: "Account succesfull deleted!" })
+
+        } catch(error) {
+
+            return error
+
+        }
+
     }
 
 }
