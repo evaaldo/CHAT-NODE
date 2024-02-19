@@ -1,12 +1,14 @@
+const sql = require("../database/connection.js")
+
 async function verifyIfBalanceIsUnavaiable(request, response, next) {
 
-    const { cpf, withdraw } = request.body
+    const { cpf, cash } = request.body
 
     const currentBalance = await sql`SELECT balance FROM accounts WHERE cpf = ${cpf}`
     
-    console.log(currentBalance)
+    const balance = currentBalance[0].balance
 
-    if(currentBalance < withdraw) {
+    if(balance < cash) {
 
         return response.status(400).json({ error: "Unavaiable balance!" })
 
@@ -15,3 +17,5 @@ async function verifyIfBalanceIsUnavaiable(request, response, next) {
     next()
 
 }
+
+module.exports = verifyIfBalanceIsUnavaiable
