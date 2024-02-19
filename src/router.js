@@ -13,6 +13,6 @@ router.put('/deposit', verifyIfAccountExists, verifyIfValueIsNegative, accountCo
 router.put('/withdraw', verifyIfAccountExists, verifyIfValueIsNegative, accountController.withdrawCash)
 router.get('/statement/date', verifyIfAccountExists, accountController.searchBankStatementOfAccountByDate)
 router.put('/account/update', verifyIfAccountExists, accountController.updateAccountData)
-router.post('/accounts', accountController.getDataOfAllAccounts)
+router.get('/accounts', accountController.getDataOfAllAccounts)
 
 module.exports = router
