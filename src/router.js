@@ -14,5 +14,6 @@ router.put('/withdraw', verifyIfAccountExists, verifyIfValueIsNegative, accountC
 router.get('/statement/date', verifyIfAccountExists, accountController.searchBankStatementOfAccountByDate)
 router.put('/account/update', verifyIfAccountExists, accountController.updateAccountData)
 router.get('/accounts', accountController.getDataOfAllAccounts)
+router.delete('/account/delete', verifyIfAccountExists, accountController.deleteAccount)
 
 module.exports = router
