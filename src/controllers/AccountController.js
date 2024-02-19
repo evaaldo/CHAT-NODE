@@ -78,6 +78,20 @@ class AccountController {
 
     async searchBankStatementOfAccountByDate(request, response) {
 
+        const { datetime } = request.body
+
+        const accountStatement = await accountService.searchBankStatementOfAccountByDate(datetime)
+
+        try {
+
+            return response.status(200).json(accountStatement)
+
+        } catch(error) {
+            
+            return error
+
+        }
+
     }
 
     async updateAccountData(request, response) {
