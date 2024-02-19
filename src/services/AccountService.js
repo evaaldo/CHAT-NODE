@@ -39,7 +39,11 @@ class AccountService {
 
     }
 
-    async searchBankStatementOfAccountByDate() {
+    async searchBankStatementOfAccountByDate(datetime) {
+
+        const accountStatement = await sql`SELECT * FROM accounts WHERE datetime = ${datetime}`
+
+        return accountStatement
 
     }
 
