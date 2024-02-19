@@ -96,6 +96,20 @@ class AccountController {
 
     async updateAccountData(request, response) {
 
+        const { name, cpf } = request.body
+
+        await accountService.updateAccountData(name, cpf)
+
+        try {
+
+            return response.status(200).json({ message: "Account updated!" })
+
+        } catch(error) {
+
+            return error
+
+        }
+
     }
 
     async getDataOfAccount(request, response) {
