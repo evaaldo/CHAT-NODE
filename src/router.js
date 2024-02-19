@@ -11,5 +11,6 @@ router.get('/statement', verifyIfAccountExists, accountController.searchBankStat
 router.post('/account', verifyIfAccountAlreadyExists, accountController.createAccount)
 router.put('/deposit', verifyIfAccountExists, verifyIfValueIsNegative, accountController.depositCash)
 router.put('/withdraw', verifyIfAccountExists, verifyIfValueIsNegative, accountController.withdrawCash)
+router.get('/statement/date', verifyIfAccountExists, accountController.searchBankStatementOfAccountByDate)
 
 module.exports = router
