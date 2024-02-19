@@ -61,7 +61,9 @@ class AccountService {
 
     }
 
-    async deleteAccount() {
+    async deleteAccount(cpf) {
+
+        await sql`DELETE FROM accounts WHERE cpf = ${cpf}`
 
     }
 
