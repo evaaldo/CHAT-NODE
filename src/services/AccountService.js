@@ -55,6 +55,10 @@ class AccountService {
 
     async getDataOfAllAccounts() {
 
+        const accounts = await sql`SELECT * FROM accounts`
+
+        return accounts
+
     }
 
     async deleteAccount() {
