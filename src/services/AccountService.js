@@ -53,7 +53,7 @@ class AccountService {
 
     }
 
-    async getDataOfAccount() {
+    async getDataOfAllAccounts() {
 
     }
 

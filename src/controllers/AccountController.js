@@ -112,7 +112,19 @@ class AccountController {
 
     }
 
-    async getDataOfAccount(request, response) {
+    async getDataOfAllAccounts(request, response) {
+
+        const accounts = await accountService.getDataOfAllAccounts()
+
+        try {
+
+            return response.status(200).json(accounts)
+
+        } catch(error) {
+
+            return error
+
+        }
 
     }
 
